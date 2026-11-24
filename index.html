@@ -134,7 +134,6 @@ section:last-of-type { border-bottom: none }
   border-radius: 12px;
   padding: 22px;
   display: flex; flex-direction: column; gap: 10px;
-  text-decoration: none; color: inherit;
   position: relative;
   transition: border-color .15s, box-shadow .15s;
 }
@@ -150,12 +149,16 @@ section:last-of-type { border-bottom: none }
   background: var(--tag-bg); color: var(--tag-fg);
   padding: 3px 8px; border-radius: 4px;
 }
-.arrow {
-  position: absolute; top: 18px; right: 18px;
-  color: var(--muted); opacity: 0;
-  transition: opacity .15s, transform .15s; font-size: 15px;
+.card-actions { display: flex; gap: 8px; margin-top: 2px; }
+.ca {
+  font-size: 12px; font-weight: 500; padding: 5px 13px;
+  border-radius: 6px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 4px;
+  transition: opacity .15s;
 }
-.card:hover .arrow { opacity: 1; transform: translate(2px,-2px) }
+.ca:hover { opacity: .8 }
+.ca-demo { background: var(--accent); color: #fff; }
+.ca-code { background: var(--surface-2); color: var(--muted); border: 1px solid var(--border); }
 
 /* EXPERIENCE */
 .timeline { display: flex; flex-direction: column; }
@@ -223,95 +226,125 @@ svg { flex-shrink: 0 }
     <h2 class="s-title">10 Projetos Angular · 2026</h2>
     <div class="grid">
 
-      <a href="https://github.com/tatiane-lab/financial-dashboard" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">Financial Dashboard</span>
         <p class="card-desc">Dashboard financeiro com autenticação JWT, Signals, pipelines RxJS (debounceTime/switchMap), gráficos ECharts e tabela paginada server-side.</p>
         <div class="tags">
           <span class="tag">Signals</span><span class="tag">RxJS</span><span class="tag">ECharts</span><span class="tag">JWT</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/financial-dashboard/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/financial-dashboard" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
-      <a href="https://github.com/tatiane-lab/kanban-manager" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">Kanban Manager</span>
         <p class="card-desc">Board Kanban com CDK drag-drop, NgRx SignalStore, atualizações otimistas com rollback automático em caso de erro e cobertura Jest.</p>
         <div class="tags">
           <span class="tag">CDK Drag-Drop</span><span class="tag">SignalStore</span><span class="tag">Jest</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/kanban-manager/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/kanban-manager" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
-      <a href="https://github.com/tatiane-lab/ecommerce" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">E-commerce</span>
         <p class="card-desc">Loja com carrinho baseado em computed+localStorage, skeletons via @defer, checkout multi-etapas e validadores assíncronos de cartão.</p>
         <div class="tags">
           <span class="tag">Signals</span><span class="tag">@defer</span><span class="tag">Reactive Forms</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/ecommerce/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/ecommerce" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
-      <a href="https://github.com/tatiane-lab/weather-pwa" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">Weather PWA</span>
         <p class="card-desc">PWA com estratégias de cache do service worker, geolocalização, alternância °C/°F e modo offline completo via ngsw-config.</p>
         <div class="tags">
           <span class="tag">PWA</span><span class="tag">Service Worker</span><span class="tag">Geolocation</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/weather-pwa/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/weather-pwa" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
-      <a href="https://github.com/tatiane-lab/micro-frontends" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">Micro-Frontends</span>
         <p class="card-desc">Shell + 2 remotes com Native Federation, event bus tipado compartilhado entre MFEs e pipeline CI com deploy independente por remote.</p>
         <div class="tags">
           <span class="tag">Native Federation</span><span class="tag">Event Bus</span><span class="tag">CI/CD</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/micro-frontends/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/micro-frontends" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
-      <a href="https://github.com/tatiane-lab/design-system" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">Design System</span>
         <p class="card-desc">Biblioteca Angular com componentes WCAG-compliant (Button, Input, Modal), ControlValueAccessor e Storybook 8 com addon-a11y.</p>
         <div class="tags">
           <span class="tag">ng library</span><span class="tag">WCAG</span><span class="tag">Storybook 8</span><span class="tag">CVA</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/design-system/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/design-system" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
-      <a href="https://github.com/tatiane-lab/realtime-chat" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">Realtime Chat</span>
         <p class="card-desc">Chat em tempo real com WebSocket e backoff exponencial, CDK virtual scroll para listas longas, SignalStore e indicadores de presença.</p>
         <div class="tags">
           <span class="tag">WebSocket</span><span class="tag">Virtual Scroll</span><span class="tag">SignalStore</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/realtime-chat/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/realtime-chat" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
-      <a href="https://github.com/tatiane-lab/ssr-performance" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">SSR Performance</span>
         <p class="card-desc">Blog com @angular/ssr, hidratação incremental, @defer por trigger (idle/interaction), NgOptimizedImage e SEO dinâmico (OG + Twitter Card).</p>
         <div class="tags">
           <span class="tag">SSR</span><span class="tag">Hydration</span><span class="tag">NgOptimizedImage</span><span class="tag">SEO</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/ssr-performance/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/ssr-performance" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
-      <a href="https://github.com/tatiane-lab/admin-rbac" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">Admin RBAC</span>
         <p class="card-desc">Painel admin com diretiva estrutural *hasPermission, guard funcional, temas CSS multi-tenant via signal+effect e E2E com Playwright.</p>
         <div class="tags">
           <span class="tag">RBAC</span><span class="tag">Structural Directive</span><span class="tag">Playwright</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/admin-rbac/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/admin-rbac" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
-      <a href="https://github.com/tatiane-lab/angular-monorepo" class="card" target="_blank" rel="noopener">
-        <span class="arrow">↗</span>
+      <div class="card">
         <span class="card-name">Angular Monorepo</span>
         <p class="card-desc">Workspace Nx 20 com libs organizadas por domínio (feature/ui/data-access/util), enforce-module-boundaries, build cache e nx affected no CI.</p>
         <div class="tags">
           <span class="tag">Nx 20</span><span class="tag">Module Boundaries</span><span class="tag">Build Cache</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="https://tatiane-lab.github.io/angular-monorepo/" class="ca ca-demo" target="_blank" rel="noopener">Demo ↗</a>
+          <a href="https://github.com/tatiane-lab/angular-monorepo" class="ca ca-code" target="_blank" rel="noopener">Código ↗</a>
+        </div>
+      </div>
 
     </div>
   </section>
