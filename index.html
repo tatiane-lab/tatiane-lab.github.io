@@ -1,0 +1,560 @@
+<title>Tatiane Bezerra</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+/* Dark-first · rose accent referencing Angular's brand · grid + timeline layout */
+:root {
+  --bg: #09090b;
+  --surface: #18181b;
+  --surface-2: #27272a;
+  --border: #3f3f46;
+  --fg: #fafafa;
+  --muted: #a1a1aa;
+  --accent: #e11d48;
+  --accent-soft: rgba(225,29,72,.12);
+  --pleno: #4ade80;
+  --senior: #fbbf24;
+  --tag-bg: rgba(255,255,255,.07);
+  --tag-fg: #a1a1aa;
+  --font-h: 'Space Grotesk', system-ui, sans-serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --font-m: 'JetBrains Mono', monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f9f9fb; --surface: #fff; --surface-2: #f4f4f6;
+    --border: #e4e4e7; --fg: #09090b; --muted: #71717a;
+    --accent: #be123c; --accent-soft: rgba(190,18,60,.1);
+    --pleno: #16a34a; --senior: #d97706;
+    --tag-bg: rgba(0,0,0,.05); --tag-fg: #52525b;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f9f9fb; --surface: #fff; --surface-2: #f4f4f6;
+  --border: #e4e4e7; --fg: #09090b; --muted: #71717a;
+  --accent: #be123c; --accent-soft: rgba(190,18,60,.1);
+  --pleno: #16a34a; --senior: #d97706;
+  --tag-bg: rgba(0,0,0,.05); --tag-fg: #52525b;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0 }
+body {
+  font-family: var(--font-b);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left,0px));
+  padding-right: max(16px, env(safe-area-inset-right,0px));
+  padding-block: 0;
+}
+
+.wrap { max-width: 940px; margin: 0 auto; }
+
+/* HERO */
+.hero {
+  padding-block: 80px 64px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '<Angular/>';
+  position: absolute;
+  right: -24px; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-m);
+  font-size: clamp(72px,13vw,170px);
+  font-weight: 500;
+  color: var(--accent);
+  opacity: .045;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-eye {
+  font-family: var(--font-m);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-name {
+  font-family: var(--font-h);
+  font-size: clamp(44px,8.5vw,88px);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  line-height: 1.0;
+  text-wrap: balance;
+  margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.hero-bio {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 580px;
+  margin-bottom: 36px;
+  line-height: 1.75;
+}
+.hero-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity .15s, background .15s;
+  font-family: var(--font-b);
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { opacity: .85 }
+.btn-ghost { background: var(--surface); color: var(--fg); border: 1px solid var(--border); }
+.btn-ghost:hover { background: var(--surface-2) }
+
+/* SECTIONS */
+section { padding-block: 64px; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none }
+.s-label {
+  font-family: var(--font-m);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.s-title {
+  font-family: var(--font-h);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  margin-bottom: 36px;
+  text-wrap: balance;
+}
+
+/* PROJECTS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
+  gap: 14px;
+}
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr } }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: border-color .15s, box-shadow .15s;
+}
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 6px 28px rgba(0,0,0,.25);
+}
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.card-name { font-family: var(--font-h); font-size: 15px; font-weight: 600; min-width: 0; }
+.badge {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.badge-p { background: rgba(74,222,128,.12); color: var(--pleno); }
+.badge-s { background: rgba(251,191,36,.12); color: var(--senior); }
+.card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
+.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag {
+  font-family: var(--font-m);
+  font-size: 11px;
+  background: var(--tag-bg);
+  color: var(--tag-fg);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.arrow {
+  position: absolute;
+  top: 18px; right: 18px;
+  color: var(--muted);
+  opacity: 0;
+  transition: opacity .15s, transform .15s;
+  font-size: 15px;
+}
+.card:hover .arrow { opacity: 1; transform: translate(2px,-2px) }
+
+/* EXPERIENCE */
+.timeline { display: flex; flex-direction: column; }
+.ti {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+  padding-block: 22px;
+  border-top: 1px solid var(--border);
+}
+.ti:first-child { border-top: none; padding-top: 0 }
+.ti:last-child { padding-bottom: 0 }
+@media (max-width: 540px) {
+  .ti { grid-template-columns: 1fr; gap: 4px; }
+}
+.t-period { font-family: var(--font-m); font-size: 12px; color: var(--muted); line-height: 1.4; padding-top: 2px; }
+.t-co { font-family: var(--font-h); font-size: 15px; font-weight: 600; }
+.t-role { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.t-desc { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px,1fr));
+  gap: 28px 32px;
+}
+.sg-label {
+  font-family: var(--font-m);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-size: 13px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* FOOTER */
+footer {
+  padding-block: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-id { font-family: var(--font-h); font-size: 14px; font-weight: 600; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--accent) }
+
+svg { flex-shrink: 0 }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-eye">Angular Developer · Front-end Engineer</div>
+    <h1 class="hero-name">Tatiane Bezerra</h1>
+    <p class="hero-sub">Software Engineer — TypeScript · Angular · RxJS &nbsp;·&nbsp; Taguatinga, DF</p>
+    <p class="hero-bio">
+      Desenvolvedora Front-end especializada em Angular, com atuação em projetos de grande porte — de plataformas bancárias (Santander) a aplicações para ATMs. Foco em código limpo, acessibilidade e arquitetura escalável com as APIs mais recentes do ecossistema Angular.
+    </p>
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/tatiane-bezerra-653714170/" class="btn btn-primary" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/tatiane-lab" class="btn btn-ghost" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <!-- PROJECTS -->
+  <section>
+    <div class="s-label">Projetos</div>
+    <h2 class="s-title">10 Projetos Angular · 2026</h2>
+    <div class="grid">
+
+      <a href="https://github.com/tatiane-lab/financial-dashboard" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">Financial Dashboard</span>
+          <span class="badge badge-p">Pleno</span>
+        </div>
+        <p class="card-desc">Dashboard financeiro com autenticação JWT, Signals, pipelines RxJS (debounceTime/switchMap), gráficos ECharts e tabela paginada server-side.</p>
+        <div class="tags">
+          <span class="tag">Signals</span><span class="tag">RxJS</span><span class="tag">ECharts</span><span class="tag">JWT</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/tatiane-lab/kanban-manager" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">Kanban Manager</span>
+          <span class="badge badge-p">Pleno</span>
+        </div>
+        <p class="card-desc">Board Kanban com CDK drag-drop, NgRx SignalStore, atualizações otimistas com rollback automático em caso de erro e cobertura Jest.</p>
+        <div class="tags">
+          <span class="tag">CDK Drag-Drop</span><span class="tag">SignalStore</span><span class="tag">Jest</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/tatiane-lab/ecommerce" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">E-commerce</span>
+          <span class="badge badge-p">Pleno</span>
+        </div>
+        <p class="card-desc">Loja com carrinho baseado em computed+localStorage, skeletons via @defer, checkout multi-etapas e validadores assíncronos de cartão.</p>
+        <div class="tags">
+          <span class="tag">Signals</span><span class="tag">@defer</span><span class="tag">Reactive Forms</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/tatiane-lab/weather-pwa" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">Weather PWA</span>
+          <span class="badge badge-p">Pleno</span>
+        </div>
+        <p class="card-desc">PWA com estratégias de cache do service worker, geolocalização, alternância °C/°F e modo offline completo via ngsw-config.</p>
+        <div class="tags">
+          <span class="tag">PWA</span><span class="tag">Service Worker</span><span class="tag">Geolocation</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/tatiane-lab/micro-frontends" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">Micro-Frontends</span>
+          <span class="badge badge-s">Sênior</span>
+        </div>
+        <p class="card-desc">Shell + 2 remotes com Native Federation, event bus tipado compartilhado entre MFEs e pipeline CI com deploy independente por remote.</p>
+        <div class="tags">
+          <span class="tag">Native Federation</span><span class="tag">Event Bus</span><span class="tag">CI/CD</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/tatiane-lab/design-system" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">Design System</span>
+          <span class="badge badge-s">Sênior</span>
+        </div>
+        <p class="card-desc">Biblioteca Angular com componentes WCAG-compliant (Button, Input, Modal), ControlValueAccessor e Storybook 8 com addon-a11y.</p>
+        <div class="tags">
+          <span class="tag">ng library</span><span class="tag">WCAG</span><span class="tag">Storybook 8</span><span class="tag">CVA</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/tatiane-lab/realtime-chat" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">Realtime Chat</span>
+          <span class="badge badge-s">Sênior</span>
+        </div>
+        <p class="card-desc">Chat em tempo real com WebSocket e backoff exponencial, CDK virtual scroll para listas longas, SignalStore e indicadores de presença.</p>
+        <div class="tags">
+          <span class="tag">WebSocket</span><span class="tag">Virtual Scroll</span><span class="tag">SignalStore</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/tatiane-lab/ssr-performance" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">SSR Performance</span>
+          <span class="badge badge-s">Sênior</span>
+        </div>
+        <p class="card-desc">Blog com @angular/ssr, hidratação incremental, @defer por trigger (idle/interaction), NgOptimizedImage e SEO dinâmico (OG + Twitter Card).</p>
+        <div class="tags">
+          <span class="tag">SSR</span><span class="tag">Hydration</span><span class="tag">NgOptimizedImage</span><span class="tag">SEO</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/tatiane-lab/admin-rbac" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">Admin RBAC</span>
+          <span class="badge badge-s">Sênior</span>
+        </div>
+        <p class="card-desc">Painel admin com diretiva estrutural *hasPermission, guard funcional, temas CSS multi-tenant via signal+effect e E2E com Playwright.</p>
+        <div class="tags">
+          <span class="tag">RBAC</span><span class="tag">Structural Directive</span><span class="tag">Playwright</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/tatiane-lab/angular-monorepo" class="card" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <div class="card-top">
+          <span class="card-name">Angular Monorepo</span>
+          <span class="badge badge-s">Sênior</span>
+        </div>
+        <p class="card-desc">Workspace Nx 20 com libs organizadas por domínio (feature/ui/data-access/util), enforce-module-boundaries, build cache e nx affected no CI.</p>
+        <div class="tags">
+          <span class="tag">Nx 20</span><span class="tag">Module Boundaries</span><span class="tag">Build Cache</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="s-label">Experiência</div>
+    <h2 class="s-title">Trajetória Profissional</h2>
+    <div class="timeline">
+
+      <div class="ti">
+        <div class="t-period">Out 2024 — Presente</div>
+        <div>
+          <div class="t-co">Capgemini</div>
+          <div class="t-role">Desenvolvedora</div>
+        </div>
+      </div>
+
+      <div class="ti">
+        <div class="t-period">Jun 2022 — Ago 2024</div>
+        <div>
+          <div class="t-co">Publicações Online</div>
+          <div class="t-role">Desenvolvedora Front-end</div>
+        </div>
+      </div>
+
+      <div class="ti">
+        <div class="t-period">Ago 2021 — Mai 2022</div>
+        <div>
+          <div class="t-co">act digital</div>
+          <div class="t-role">Desenvolvedora</div>
+          <div class="t-desc">Plataforma web para o cliente Santander em Angular 8, TypeScript, CSS e HTML.</div>
+        </div>
+      </div>
+
+      <div class="ti">
+        <div class="t-period">Jun 2021 — Ago 2021</div>
+        <div>
+          <div class="t-co">Central IT — Governança Corporativa</div>
+          <div class="t-role">Analista Desenvolvedor Jr</div>
+          <div class="t-desc">Sistemas internos com AngularJS, Angular, JavaScript e CITSmart.</div>
+        </div>
+      </div>
+
+      <div class="ti">
+        <div class="t-period">Mar 2021 — Jun 2021</div>
+        <div>
+          <div class="t-co">Digitrack</div>
+          <div class="t-role">Full Stack Developer Jr</div>
+          <div class="t-desc">Angular 8, Java 8 e SpringBoot para sistemas de mobilidade.</div>
+        </div>
+      </div>
+
+      <div class="ti">
+        <div class="t-period">Nov 2019 — Dez 2020</div>
+        <div>
+          <div class="t-co">Eletronorte</div>
+          <div class="t-role">Estagiário — TI</div>
+        </div>
+      </div>
+
+      <div class="ti">
+        <div class="t-period">Jan 2019 — Set 2019</div>
+        <div>
+          <div class="t-co">Banco Central do Brasil</div>
+          <div class="t-role">Estagiário — Desenvolvimento</div>
+          <div class="t-desc">AngularJS, JavaScript e suporte ao laboratório de informática.</div>
+        </div>
+      </div>
+
+      <div class="ti">
+        <div class="t-period">Mai 2018 — Out 2018</div>
+        <div>
+          <div class="t-co">FUNAI</div>
+          <div class="t-role">Estagiário — Desenvolvimento</div>
+          <div class="t-desc">Sistemas internos e atualização de intranet em PHP, HTML e CSS.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="s-label">Tecnologias</div>
+    <h2 class="s-title">Stack Técnica</h2>
+    <div class="skills-grid">
+      <div>
+        <div class="sg-label">Core</div>
+        <div class="chips">
+          <span class="chip">Angular 22</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-label">Reatividade</div>
+        <div class="chips">
+          <span class="chip">RxJS</span>
+          <span class="chip">Signals</span>
+          <span class="chip">NgRx SignalStore</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-label">Testes</div>
+        <div class="chips">
+          <span class="chip">Jest</span>
+          <span class="chip">Jasmine</span>
+          <span class="chip">Playwright</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-label">Arquitetura</div>
+        <div class="chips">
+          <span class="chip">Nx</span>
+          <span class="chip">Micro-Frontends</span>
+          <span class="chip">SSR</span>
+          <span class="chip">PWA</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-label">Ferramentas</div>
+        <div class="chips">
+          <span class="chip">Storybook 8</span>
+          <span class="chip">Bootstrap</span>
+          <span class="chip">Git</span>
+        </div>
+      </div>
+      <div>
+        <div class="sg-label">Certificação</div>
+        <div class="chips">
+          <span class="chip">Scrum Foundation (SFPC)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-id">Tatiane Bezerra · Angular Developer</div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/tatiane-bezerra-653714170/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/tatiane-lab" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+</div>
