@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
 
 <style>
-/* Dark-first · rose accent referencing Angular's brand · grid + timeline layout */
+/* Dark-first · rose accent nodding to Angular's brand */
 :root {
   --bg: #09090b;
   --surface: #18181b;
@@ -12,9 +12,6 @@
   --fg: #fafafa;
   --muted: #a1a1aa;
   --accent: #e11d48;
-  --accent-soft: rgba(225,29,72,.12);
-  --pleno: #4ade80;
-  --senior: #fbbf24;
   --tag-bg: rgba(255,255,255,.07);
   --tag-fg: #a1a1aa;
   --font-h: 'Space Grotesk', system-ui, sans-serif;
@@ -26,8 +23,7 @@
   :root:not([data-theme="dark"]) {
     --bg: #f9f9fb; --surface: #fff; --surface-2: #f4f4f6;
     --border: #e4e4e7; --fg: #09090b; --muted: #71717a;
-    --accent: #be123c; --accent-soft: rgba(190,18,60,.1);
-    --pleno: #16a34a; --senior: #d97706;
+    --accent: #be123c;
     --tag-bg: rgba(0,0,0,.05); --tag-fg: #52525b;
     color-scheme: light;
   }
@@ -35,8 +31,7 @@
 :root[data-theme="light"] {
   --bg: #f9f9fb; --surface: #fff; --surface-2: #f4f4f6;
   --border: #e4e4e7; --fg: #09090b; --muted: #71717a;
-  --accent: #be123c; --accent-soft: rgba(190,18,60,.1);
-  --pleno: #16a34a; --senior: #d97706;
+  --accent: #be123c;
   --tag-bg: rgba(0,0,0,.05); --tag-fg: #52525b;
   color-scheme: light;
 }
@@ -53,7 +48,6 @@ body {
   padding-right: max(16px, env(safe-area-inset-right,0px));
   padding-block: 0;
 }
-
 .wrap { max-width: 940px; margin: 0 auto; }
 
 /* HERO */
@@ -94,30 +88,17 @@ body {
   text-wrap: balance;
   margin-bottom: 20px;
 }
-.hero-sub {
-  font-size: 16px;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
+.hero-sub { font-size: 16px; color: var(--muted); margin-bottom: 20px; }
 .hero-bio {
-  font-size: 15px;
-  color: var(--muted);
-  max-width: 580px;
-  margin-bottom: 36px;
-  line-height: 1.75;
+  font-size: 15px; color: var(--muted);
+  max-width: 580px; margin-bottom: 36px; line-height: 1.75;
 }
 .hero-links { display: flex; flex-wrap: wrap; gap: 10px; }
 .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: opacity .15s, background .15s;
-  font-family: var(--font-b);
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  transition: opacity .15s, background .15s; font-family: var(--font-b);
 }
 .btn-primary { background: var(--accent); color: #fff; }
 .btn-primary:hover { opacity: .85 }
@@ -128,20 +109,13 @@ body {
 section { padding-block: 64px; border-bottom: 1px solid var(--border); }
 section:last-of-type { border-bottom: none }
 .s-label {
-  font-family: var(--font-m);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 8px;
+  font-family: var(--font-m); font-size: 11px;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
 }
 .s-title {
-  font-family: var(--font-h);
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -.025em;
-  margin-bottom: 36px;
-  text-wrap: balance;
+  font-family: var(--font-h); font-size: 28px; font-weight: 700;
+  letter-spacing: -.025em; margin-bottom: 36px; text-wrap: balance;
 }
 
 /* PROJECTS */
@@ -157,11 +131,8 @@ section:last-of-type { border-bottom: none }
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-decoration: none;
-  color: inherit;
+  display: flex; flex-direction: column; gap: 10px;
+  text-decoration: none; color: inherit;
   position: relative;
   transition: border-color .15s, box-shadow .15s;
 }
@@ -169,98 +140,58 @@ section:last-of-type { border-bottom: none }
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent), 0 6px 28px rgba(0,0,0,.25);
 }
-.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-.card-name { font-family: var(--font-h); font-size: 15px; font-weight: 600; min-width: 0; }
-.badge {
-  font-family: var(--font-m);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.badge-p { background: rgba(74,222,128,.12); color: var(--pleno); }
-.badge-s { background: rgba(251,191,36,.12); color: var(--senior); }
+.card-name { font-family: var(--font-h); font-size: 15px; font-weight: 600; }
 .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
 .tags { display: flex; flex-wrap: wrap; gap: 5px; }
 .tag {
-  font-family: var(--font-m);
-  font-size: 11px;
-  background: var(--tag-bg);
-  color: var(--tag-fg);
-  padding: 3px 8px;
-  border-radius: 4px;
+  font-family: var(--font-m); font-size: 11px;
+  background: var(--tag-bg); color: var(--tag-fg);
+  padding: 3px 8px; border-radius: 4px;
 }
 .arrow {
-  position: absolute;
-  top: 18px; right: 18px;
-  color: var(--muted);
-  opacity: 0;
-  transition: opacity .15s, transform .15s;
-  font-size: 15px;
+  position: absolute; top: 18px; right: 18px;
+  color: var(--muted); opacity: 0;
+  transition: opacity .15s, transform .15s; font-size: 15px;
 }
 .card:hover .arrow { opacity: 1; transform: translate(2px,-2px) }
 
 /* EXPERIENCE */
 .timeline { display: flex; flex-direction: column; }
 .ti {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 24px;
-  padding-block: 22px;
-  border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: 150px 1fr; gap: 24px;
+  padding-block: 22px; border-top: 1px solid var(--border);
 }
 .ti:first-child { border-top: none; padding-top: 0 }
 .ti:last-child { padding-bottom: 0 }
-@media (max-width: 540px) {
-  .ti { grid-template-columns: 1fr; gap: 4px; }
-}
+@media (max-width: 540px) { .ti { grid-template-columns: 1fr; gap: 4px; } }
 .t-period { font-family: var(--font-m); font-size: 12px; color: var(--muted); line-height: 1.4; padding-top: 2px; }
 .t-co { font-family: var(--font-h); font-size: 15px; font-weight: 600; }
 .t-role { font-size: 13px; color: var(--muted); margin-top: 2px; }
 .t-desc { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
 
 /* SKILLS */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px,1fr));
-  gap: 28px 32px;
-}
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 28px 32px; }
 .sg-label {
-  font-family: var(--font-m);
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 10px;
+  font-family: var(--font-m); font-size: 11px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 10px;
 }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
-  font-size: 13px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--fg);
-  padding: 4px 12px;
-  border-radius: 20px;
+  font-size: 13px; background: var(--surface);
+  border: 1px solid var(--border); color: var(--fg);
+  padding: 4px 12px; border-radius: 20px;
 }
 
 /* FOOTER */
 footer {
-  padding-block: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
+  padding-block: 36px; display: flex; align-items: center;
+  justify-content: space-between; gap: 12px; flex-wrap: wrap;
 }
 .footer-id { font-family: var(--font-h); font-size: 14px; font-weight: 600; }
 .footer-links { display: flex; gap: 20px; }
 .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
 .footer-links a:hover { color: var(--accent) }
-
 svg { flex-shrink: 0 }
 </style>
 
@@ -285,7 +216,6 @@ svg { flex-shrink: 0 }
     </div>
   </header>
 
-  <!-- PROJECTS -->
   <section>
     <div class="s-label">Projetos</div>
     <h2 class="s-title">10 Projetos Angular · 2026</h2>
@@ -293,10 +223,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/financial-dashboard" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">Financial Dashboard</span>
-          <span class="badge badge-p">Pleno</span>
-        </div>
+        <span class="card-name">Financial Dashboard</span>
         <p class="card-desc">Dashboard financeiro com autenticação JWT, Signals, pipelines RxJS (debounceTime/switchMap), gráficos ECharts e tabela paginada server-side.</p>
         <div class="tags">
           <span class="tag">Signals</span><span class="tag">RxJS</span><span class="tag">ECharts</span><span class="tag">JWT</span>
@@ -305,10 +232,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/kanban-manager" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">Kanban Manager</span>
-          <span class="badge badge-p">Pleno</span>
-        </div>
+        <span class="card-name">Kanban Manager</span>
         <p class="card-desc">Board Kanban com CDK drag-drop, NgRx SignalStore, atualizações otimistas com rollback automático em caso de erro e cobertura Jest.</p>
         <div class="tags">
           <span class="tag">CDK Drag-Drop</span><span class="tag">SignalStore</span><span class="tag">Jest</span>
@@ -317,10 +241,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/ecommerce" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">E-commerce</span>
-          <span class="badge badge-p">Pleno</span>
-        </div>
+        <span class="card-name">E-commerce</span>
         <p class="card-desc">Loja com carrinho baseado em computed+localStorage, skeletons via @defer, checkout multi-etapas e validadores assíncronos de cartão.</p>
         <div class="tags">
           <span class="tag">Signals</span><span class="tag">@defer</span><span class="tag">Reactive Forms</span>
@@ -329,10 +250,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/weather-pwa" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">Weather PWA</span>
-          <span class="badge badge-p">Pleno</span>
-        </div>
+        <span class="card-name">Weather PWA</span>
         <p class="card-desc">PWA com estratégias de cache do service worker, geolocalização, alternância °C/°F e modo offline completo via ngsw-config.</p>
         <div class="tags">
           <span class="tag">PWA</span><span class="tag">Service Worker</span><span class="tag">Geolocation</span>
@@ -341,10 +259,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/micro-frontends" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">Micro-Frontends</span>
-          <span class="badge badge-s">Sênior</span>
-        </div>
+        <span class="card-name">Micro-Frontends</span>
         <p class="card-desc">Shell + 2 remotes com Native Federation, event bus tipado compartilhado entre MFEs e pipeline CI com deploy independente por remote.</p>
         <div class="tags">
           <span class="tag">Native Federation</span><span class="tag">Event Bus</span><span class="tag">CI/CD</span>
@@ -353,10 +268,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/design-system" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">Design System</span>
-          <span class="badge badge-s">Sênior</span>
-        </div>
+        <span class="card-name">Design System</span>
         <p class="card-desc">Biblioteca Angular com componentes WCAG-compliant (Button, Input, Modal), ControlValueAccessor e Storybook 8 com addon-a11y.</p>
         <div class="tags">
           <span class="tag">ng library</span><span class="tag">WCAG</span><span class="tag">Storybook 8</span><span class="tag">CVA</span>
@@ -365,10 +277,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/realtime-chat" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">Realtime Chat</span>
-          <span class="badge badge-s">Sênior</span>
-        </div>
+        <span class="card-name">Realtime Chat</span>
         <p class="card-desc">Chat em tempo real com WebSocket e backoff exponencial, CDK virtual scroll para listas longas, SignalStore e indicadores de presença.</p>
         <div class="tags">
           <span class="tag">WebSocket</span><span class="tag">Virtual Scroll</span><span class="tag">SignalStore</span>
@@ -377,10 +286,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/ssr-performance" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">SSR Performance</span>
-          <span class="badge badge-s">Sênior</span>
-        </div>
+        <span class="card-name">SSR Performance</span>
         <p class="card-desc">Blog com @angular/ssr, hidratação incremental, @defer por trigger (idle/interaction), NgOptimizedImage e SEO dinâmico (OG + Twitter Card).</p>
         <div class="tags">
           <span class="tag">SSR</span><span class="tag">Hydration</span><span class="tag">NgOptimizedImage</span><span class="tag">SEO</span>
@@ -389,10 +295,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/admin-rbac" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">Admin RBAC</span>
-          <span class="badge badge-s">Sênior</span>
-        </div>
+        <span class="card-name">Admin RBAC</span>
         <p class="card-desc">Painel admin com diretiva estrutural *hasPermission, guard funcional, temas CSS multi-tenant via signal+effect e E2E com Playwright.</p>
         <div class="tags">
           <span class="tag">RBAC</span><span class="tag">Structural Directive</span><span class="tag">Playwright</span>
@@ -401,10 +304,7 @@ svg { flex-shrink: 0 }
 
       <a href="https://github.com/tatiane-lab/angular-monorepo" class="card" target="_blank" rel="noopener">
         <span class="arrow">↗</span>
-        <div class="card-top">
-          <span class="card-name">Angular Monorepo</span>
-          <span class="badge badge-s">Sênior</span>
-        </div>
+        <span class="card-name">Angular Monorepo</span>
         <p class="card-desc">Workspace Nx 20 com libs organizadas por domínio (feature/ui/data-access/util), enforce-module-boundaries, build cache e nx affected no CI.</p>
         <div class="tags">
           <span class="tag">Nx 20</span><span class="tag">Module Boundaries</span><span class="tag">Build Cache</span>
@@ -414,28 +314,18 @@ svg { flex-shrink: 0 }
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section>
     <div class="s-label">Experiência</div>
     <h2 class="s-title">Trajetória Profissional</h2>
     <div class="timeline">
-
       <div class="ti">
         <div class="t-period">Out 2024 — Presente</div>
-        <div>
-          <div class="t-co">Capgemini</div>
-          <div class="t-role">Desenvolvedora</div>
-        </div>
+        <div><div class="t-co">Capgemini</div><div class="t-role">Desenvolvedora</div></div>
       </div>
-
       <div class="ti">
         <div class="t-period">Jun 2022 — Ago 2024</div>
-        <div>
-          <div class="t-co">Publicações Online</div>
-          <div class="t-role">Desenvolvedora Front-end</div>
-        </div>
+        <div><div class="t-co">Publicações Online</div><div class="t-role">Desenvolvedora Front-end</div></div>
       </div>
-
       <div class="ti">
         <div class="t-period">Ago 2021 — Mai 2022</div>
         <div>
@@ -444,7 +334,6 @@ svg { flex-shrink: 0 }
           <div class="t-desc">Plataforma web para o cliente Santander em Angular 8, TypeScript, CSS e HTML.</div>
         </div>
       </div>
-
       <div class="ti">
         <div class="t-period">Jun 2021 — Ago 2021</div>
         <div>
@@ -453,7 +342,6 @@ svg { flex-shrink: 0 }
           <div class="t-desc">Sistemas internos com AngularJS, Angular, JavaScript e CITSmart.</div>
         </div>
       </div>
-
       <div class="ti">
         <div class="t-period">Mar 2021 — Jun 2021</div>
         <div>
@@ -462,15 +350,10 @@ svg { flex-shrink: 0 }
           <div class="t-desc">Angular 8, Java 8 e SpringBoot para sistemas de mobilidade.</div>
         </div>
       </div>
-
       <div class="ti">
         <div class="t-period">Nov 2019 — Dez 2020</div>
-        <div>
-          <div class="t-co">Eletronorte</div>
-          <div class="t-role">Estagiário — TI</div>
-        </div>
+        <div><div class="t-co">Eletronorte</div><div class="t-role">Estagiário — TI</div></div>
       </div>
-
       <div class="ti">
         <div class="t-period">Jan 2019 — Set 2019</div>
         <div>
@@ -479,7 +362,6 @@ svg { flex-shrink: 0 }
           <div class="t-desc">AngularJS, JavaScript e suporte ao laboratório de informática.</div>
         </div>
       </div>
-
       <div class="ti">
         <div class="t-period">Mai 2018 — Out 2018</div>
         <div>
@@ -488,11 +370,9 @@ svg { flex-shrink: 0 }
           <div class="t-desc">Sistemas internos e atualização de intranet em PHP, HTML e CSS.</div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section>
     <div class="s-label">Tecnologias</div>
     <h2 class="s-title">Stack Técnica</h2>
@@ -500,44 +380,33 @@ svg { flex-shrink: 0 }
       <div>
         <div class="sg-label">Core</div>
         <div class="chips">
-          <span class="chip">Angular 22</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">HTML</span>
-          <span class="chip">CSS</span>
+          <span class="chip">Angular 22</span><span class="chip">TypeScript</span>
+          <span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span>
         </div>
       </div>
       <div>
         <div class="sg-label">Reatividade</div>
         <div class="chips">
-          <span class="chip">RxJS</span>
-          <span class="chip">Signals</span>
-          <span class="chip">NgRx SignalStore</span>
+          <span class="chip">RxJS</span><span class="chip">Signals</span><span class="chip">NgRx SignalStore</span>
         </div>
       </div>
       <div>
         <div class="sg-label">Testes</div>
         <div class="chips">
-          <span class="chip">Jest</span>
-          <span class="chip">Jasmine</span>
-          <span class="chip">Playwright</span>
+          <span class="chip">Jest</span><span class="chip">Jasmine</span><span class="chip">Playwright</span>
         </div>
       </div>
       <div>
         <div class="sg-label">Arquitetura</div>
         <div class="chips">
-          <span class="chip">Nx</span>
-          <span class="chip">Micro-Frontends</span>
-          <span class="chip">SSR</span>
-          <span class="chip">PWA</span>
+          <span class="chip">Nx</span><span class="chip">Micro-Frontends</span>
+          <span class="chip">SSR</span><span class="chip">PWA</span>
         </div>
       </div>
       <div>
         <div class="sg-label">Ferramentas</div>
         <div class="chips">
-          <span class="chip">Storybook 8</span>
-          <span class="chip">Bootstrap</span>
-          <span class="chip">Git</span>
+          <span class="chip">Storybook 8</span><span class="chip">Bootstrap</span><span class="chip">Git</span>
         </div>
       </div>
       <div>
